@@ -1,25 +1,132 @@
+let transfer = (word) => {
+  const res = word
+  .split(". ")
+  .map((item) => {
+   console.log('item :>> ', item);
+    const splitArr = item.split(" ");
+    return splitArr[0];
+  });
+  console.log("res :>> ", res);
+};
+transfer(
+  "Написать функцию. которая принимает два числа. возращает результат их умножения"
+);
 
+// let hi = (timeHi) => {
+//    switch (timeHi) {
 
+//       case (timeHi <= 12 || timeHi >= 8):
+//       console.log('утро');
+//       break;
+//       case (timeHi <= 17 >= 13):
+//       console.log('день');
+//       break;
+//       case (22 <=  timeHi >= 18):
+//       console.log('вечер');
+//       break;
+//       case (timeHi <= 7 >= 23):
+//       console.log('ночь');
+//       break;
 
+//    }
+// }
+// hi(11)
 
+// let hi = (timeHi) => {
 
+// function camelize(str) {
+//   return str
+//     .split('-')
+//     .map((word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1))
+//     .join('');
+// }
+// console.log(camelize('lol-kek-cheburek'));
 
+// let dayWeek = day => {
+//     switch (day) {
+//         default:
+//             console.error('error');
+//             break;
+//             case 1:
+//             console.log('пн');
+//             break;
+//         case 2:
+//             console.log('вт');
+//             break;
+//         case 3:
+//             console.log('ср');
+//             break;
+//         case 4:
+//             console.log('чт');
+//             break;
+//         case 5:
+//             console.log('пт');
+//             break;
+//         case 6:
+//             console.log('субб');
+//             break;
+//         case 7:
+//             console.log('вск');
+//             break;
 
+//     }
+// }
+// dayWeek(22);
 
+// let sexFunc = (sex) => {
 
+//     if (sex == 'мужской') {
+//        console.log('Ваш пол мужской');
+//     } else if (sex == 'женский') {
+//         console.log("Ваш пол женский")
+//     } else{
+//         console.error('error')
+//     }
+// return(sex);
+// }
+// sexFunc('женский');
 
+// let nameAge = (name, lastName, middleName, age) => {
+//     let message = ('Привет' + lastName + name + middleName + ' ' + age)
+//     return message;
+// }
+// console.log(nameAge(' max', ' popov', ' serg', 27));
 
+// const sum = (a, b) => a * b;
+// console.log(sum(2 , 2));
 
+// function minMax(min, max) {
+//     const array = [];
 
+//     for (let i =min; i<max; i++) {
+//         array.push(i)
+//          console.log(array)
+//     }
+//     console.log(array.length)
+// }
 
+// minMax(1, 9)
 
+// function pars(a, b) {
+//   //   for (let i = 0; i < a.length; i++) {
+//   //     // if (a[i] == b) {
+//   //     //     a.replaceAt(i, a[i].toUpperCase())
+//   //     // }
+//   //     console.log(a[i]);
+//   //   }
+//   const result = a
+//     .split("")
+//     .map((letter) => {
+//       if (letter == b) {
+//         letter = letter.toUpperCase();
+//       }
+//       return letter;
+//     })
+//     .join("");
+//   console.log("result :>> ", result);
+// }
 
-
-
-
-
-
-
+// pars("привет мир!", "в");
 
 // function letters(str) {
 //   let sum = 0;
@@ -53,9 +160,6 @@
 
 // letters("НННКПРРРРОРППППР")
 
-
-
-
 // function dateWeek(day) {
 //     if (day == 1)  console.log("Понедельник")
 //     else if (day == 2) {console.log("вт")}
@@ -69,7 +173,6 @@
 //  }
 
 // dateWeek(2)
-
 
 // function dateWeek(day) {
 //     switch (day) {
@@ -100,17 +203,11 @@
 //         case 7:
 //         console.log("в");
 //         break;
-     
+
 // }
- 
+
 // }
 // dateWeek(3)
-
-
-
-
-
-
 
 // function costInternet(n) {
 //     let oneDay = 450 / 30;
@@ -122,15 +219,10 @@
 // let sdsd = costInternet(20);
 // console.log('sdsd :>> ', sdsd);
 
-
-
 // function checkAge(age) {
-//    return (age > 18 || console.log("ne 18")) 
-    
+//    return (age > 18 || console.log("ne 18"))
+
 //   }
-
-
-
 
 //   function checkAge(age) {
 
@@ -138,42 +230,15 @@
 
 // }
 
-
-
-
 // function filterRange(arr, a, b) {
 
 // return arr.filter(item => (a <=item && item <= b));
 
 // }
 
-
 // let arr = [5, 3, 8, 1];
 
 // let filtered = filterRange(arr, 1, 4);
-
-
-
-
-
-
-
-
-
-
-
-
-// function camelize(str) {
-//   return str
-//     .split('-') 
-//     .map((word, index) => index == 0 ? word : word[0].toUpperCase() + word.slice(1))
-//     .join(''); 
-// }
-// console.log(camelize('lol-kek-cheburek'));
-
-
-
-
 
 // function length(array) {
 //   console.log("array :>> ", array);
@@ -182,13 +247,12 @@
 //     console.log("string");
 //     const arr = Array.from(array);
 //     console.log(arr)
-    // for (let i = 0; i < arr.length; i++) {
-    //   count = count + 1;
-    // }
-    // console.log("count :>> ", count);
-    // return count;
-   
-    
+// for (let i = 0; i < arr.length; i++) {
+//   count = count + 1;
+// }
+// console.log("count :>> ", count);
+// return count;
+
 //   } else if (Array.isArray(array)) {
 //     for (let i = 0; i < array.length; i++) {
 //       count = count + 1;
@@ -206,7 +270,3 @@
 // const arrayLength = length([1, 2, 3, 4, 5, 6, 7, 8]);
 // // const arrayLength = length(435335);
 // console.log(arrayLength)
-
-
-
-
