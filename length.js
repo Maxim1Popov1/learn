@@ -1,18 +1,108 @@
-let transfer = (word) => {
-  const res = word
-  .split(". ")
-  .map((item) => {
-   console.log('item :>> ', item);
-    const splitArr = item.split(" ");
-    return splitArr[0];
-  });
-  console.log("res :>> ", res);
-};
-transfer(
-  "Написать функцию. которая принимает два числа. возращает результат их умножения"
-);
 
-// let hi = (timeHi) => {
+let multiply = (number) => {
+    let stringNum = String(number);
+    let degree = 5;
+    let degreeNumber = 0
+        console.log(degreeNumber);
+        if (number < 0) {
+         degreeNumber =  degree ** (stringNum.length - 1) 
+        } else {
+        degreeNumber = degree ** stringNum.length
+        }
+
+        return (degreeNumber * number);
+
+
+   
+}
+
+multiply(30)
+
+
+
+
+
+
+
+
+
+
+// let XO = (word) => {
+//     let lowerWord = word.toLowerCase();
+//   let sumX = 0;
+//   let sumO = 0;
+
+//   for (let i = 0; i < lowerWord.length; i++) {
+//     // console.log(lowerWord[i]);
+//     if (lowerWord[i] == "x") {
+//       sumX = sumX + 1;
+//     }
+//     if (lowerWord[i] == "o") {
+//       sumO = sumO + 1;
+//     }
+//   }
+//   if (sumO === sumX) {
+//     return true; 
+//   } else {
+//     return false
+//   }
+// // return word;
+
+// //   console.log("sumX :>> ", sumX);
+// //   console.log("sumO :>> ", sumO);
+// };
+
+// XO('ooXm');
+
+
+
+// function letters(str) {
+//   let sum = 0;
+//   let array = [];
+//     for (let i = 0; i < str.length; i++) {
+//     console.log(str[i])
+//     if (str[i]=="Н"){
+//         sum=sum+1;
+//         array.push('Н=1')
+//     }
+//     if (str[i]=="К"){
+//         sum=sum+5;
+//         array.push('К=5')
+//     }
+//     if (str[i]=="Р"){
+//         sum=sum+4;
+//         array.push('Р=4')
+//     }
+//     if (str[i]=="О"){
+//         sum=sum+7;
+//         array.push('О=7')
+//     }
+//     if (str[i]=="П"){
+//         sum=sum+2;
+//         array.push('П=2')
+//     }
+//    }
+//    console.log(sum)
+//    console.log(array)
+// }
+
+// letters("НННКПРРРРОРППППР")
+
+// let transfer = (word) => {
+//   const res = word
+//   .split(". ")
+//   .map((item) => {
+//    console.log('item :>> ', item);
+//     const splitArr = item.split(" ");
+//     return splitArr[0];
+//   });
+//   console.log("res :>> ", res);
+// };
+// transfer(
+//   "Написать функцию. которая принимает два числа. возращает результат их умножения" // текст перебора
+// );
+
+// let hi = (timeHi) => {     // не работает через swith нужно через if
 //    switch (timeHi) {
 
 //       case (timeHi <= 12 || timeHi >= 8):
