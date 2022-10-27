@@ -1,22 +1,31 @@
 
-let multiply = (number) => {
-    let stringNum = String(number);
-    let degree = 5;
-    let degreeNumber = 0
-        console.log(degreeNumber);
-        if (number < 0) {
-         degreeNumber =  degree ** (stringNum.length - 1) 
-        } else {
-        degreeNumber = degree ** stringNum.length
-        }
 
-        return (degreeNumber * number);
+
+
+
+
+
+
+
+
+// let multiply = (number) => {
+//     let stringNum = String(number);
+//     let degree = 5;
+//     let degreeNumber = 0
+//         console.log(degreeNumber);
+//         if (number < 0) {
+//          degreeNumber =  degree ** (stringNum.length - 1) 
+//         } else {
+//         degreeNumber = degree ** stringNum.length
+//         }
+
+//         return (degreeNumber * number);
 
 
    
-}
+// }
 
-multiply(30)
+// multiply(30)
 
 
 
