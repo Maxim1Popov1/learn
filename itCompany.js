@@ -1,35 +1,49 @@
 class Employ {
-  constructor() {
-    this.rate = employeesGeneration(2, 30);
-    // this.grade = options.grade;
+  constructor(options) {
+    this.rate = options.rate;
+    this.grade = options.grade;
+    this.side = options.side;
   }
-//   randomRate() {
-//      this.rate = employeesGeneration(2, 30) 
-//      console.log('this.rate :>> ', this.rate);
-//   }
 }
-const options = { rate: 0, grade: "midl" };
 
 class ItCompany {
   employees = [];
   hireEmployees() {
-    const frontDev = employeesGeneration(1, 15);
-    // const backDev = employeesGeneration(1, 15);
-    console.log("frontDev :>> ", frontDev);
-    // console.log("beckDev :>> ", backDev); 
-    for (let i = 0; i < frontDev; i++) {
-        this.employees.push(employ);
+    const devs = randomGeneration(1, 30);
 
+    for (let i = 0; i < devs; i++) {
+      const options = {
+        rate: randomGeneration(2, 30),
+        grade: gradeGenetation(),
+        side: sideGenetation(),
+      };
+      const employ = new Employ(options);
+      this.employees.push(employ);
     }
-      console.log("employees", this.employees);
+    console.log("employees", this.employees);
   }
 }
 
-const employeesGeneration = (max, min) => {
+const randomGeneration = (max, min) => {
   return Math.floor(Math.random() * (max - min)) + min;
 };
 
-const employ = new Employ();
+const rateGeneration = () => {
+    
+}
+
+const gradeGenetation = () => {
+  const grades = ["Junior", "Middle", "Signor"];
+  const randomGrade = randomGeneration(3, 0);
+  return grades[randomGrade];
+};
+
+const sideGenetation = () => {
+  const sides = ["Back", "Front"];
+  const randomSide = randomGeneration(2, 0);
+  return sides[randomSide];
+};
+
 const itCompany = new ItCompany();
 itCompany.hireEmployees();
 
