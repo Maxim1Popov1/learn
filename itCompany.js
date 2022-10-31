@@ -1,28 +1,47 @@
 class Employ {
-  constructor(options) {
-    this.rate = options.rate;
-    this.grade = options.grade;
-    this.side = options.side;
-    this.parallel = options.parallel;
+  constructor() {
+    this.rate;
+    this.grade;
+    this.side;
+    // this.parallel = options.parallel;
   }
+  createEmploy() {
+    const devGrade = gradeGenetation();
+    let devRate = 0;
+
+    if (devGrade == "Junior") {
+      devRate = 12;
+    } else if (devGrade == "Middle") {
+      devRate = 22;
+    } else {
+      devRate = 29;
+    }
+
+    this.rate = devRate;
+    this.grade = devGrade;
+    this.side = sideGenetation();
+
+    return this;
+  }
+}
+
+class Customer {
+  constructor(options) {
+    this.description = options.description;
+    this.side = options.side;
+    this.estimate = options.estimate;
+  }
+  createProject() {}
 }
 
 class ItCompany {
   employees = [];
   hireEmployees() {
     const devs = randomGeneration(1, 30);
-
     for (let i = 0; i < devs; i++) {
-      const options = {
-        rate: randomGeneration(2, 30),
-        grade: gradeGenetation(),
-        side: sideGenetation(),
-        parallel: randomBoolean(),
-      };
-      const employ = new Employ(options);
-      this.employees.push(employ);
+      const employ = new Employ();
+      this.employees.push(employ.createEmploy());
     }
-    console.log("employees", this.employees);
   }
 }
 
@@ -30,11 +49,9 @@ const randomGeneration = (max, min) => {
   return Math.floor(Math.random() * (max - min)) + min;
 };
 
-const randomBoolean = () => {return Math.random() < 0.5;};
-
-const rateGeneration = () => {
-    
-}
+const randomBoolean = () => {
+  return Math.random() < 0.5;
+};
 
 const gradeGenetation = () => {
   const grades = ["Junior", "Middle", "Signor"];
