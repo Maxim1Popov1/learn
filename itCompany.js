@@ -26,12 +26,26 @@ class Employ {
 }
 
 class Customer {
-  constructor(options) {
-    this.description = options.description;
-    this.side = options.side;
-    this.estimate = options.estimate;
+  constructor() {
+    // this.description;
+    // this.side;
+    // this.estimate;
+    this.projectSettings = [];
   }
-  createProject() {}
+  createProject() {
+    const numberOfTasks = randomGeneration(1, 50);
+    for (let i = 1; i < numberOfTasks; i++) {
+      const task = {
+        description: `Task ${i}`,
+        side: sideGenetation(),
+        estimate: randomGeneration(1, 30),
+      };
+
+      this.projectSettings.push(task)
+    }
+    console.log(this.projectSettings);
+    return this;
+  }
 }
 
 class ItCompany {
@@ -67,5 +81,6 @@ const sideGenetation = () => {
 
 const itCompany = new ItCompany();
 itCompany.hireEmployees();
-
+const customer = new Customer();
+customer.createProject();
 // console.log("itCompany :>> ", itCompany.emloyees);
