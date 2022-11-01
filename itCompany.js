@@ -3,6 +3,7 @@ class Employ {
     this.rate;
     this.grade;
     this.side;
+    this.tasks = [];
     // this.parallel = options.parallel;
   }
   createEmploy() {
@@ -33,7 +34,7 @@ class Customer {
     this.projectSettings = [];
   }
   createProject() {
-    const numberOfTasks = randomGeneration(1, 50);
+    const numberOfTasks = randomGeneration(1, 10);
     for (let i = 1; i < numberOfTasks; i++) {
       const task = {
         description: `Task ${i}`,
@@ -41,21 +42,38 @@ class Customer {
         estimate: randomGeneration(1, 30),
       };
 
-      this.projectSettings.push(task)
+      this.projectSettings.push(task);
     }
-    console.log(this.projectSettings);
-    return this;
+    // console.log(this.projectSettings);
+    return this.projectSettings;
   }
 }
 
 class ItCompany {
   employees = [];
   hireEmployees() {
-    const devs = randomGeneration(1, 30);
+    const devs = randomGeneration(1, 10);
     for (let i = 0; i < devs; i++) {
       const employ = new Employ();
       this.employees.push(employ.createEmploy());
     }
+  }
+
+  calculateProjectImplementation(project) {
+    
+    console.log("employees :>> ", this.employees);
+    const assignTask = project.projectSettings.map((task) => {
+      console.log('task :>> ', task);
+      return this.employees.find((employ) => {
+        if (employ.tasks.length === 0) {
+          employ.tasks.push(task);
+          return employ.side === task.side;
+        }
+      });
+      // console.log("findedEmploy :>> ", findedEmploys);
+    });
+    console.log("assignTask :>> ", assignTask);
+    
   }
 }
 
@@ -81,6 +99,8 @@ const sideGenetation = () => {
 
 const itCompany = new ItCompany();
 itCompany.hireEmployees();
-const customer = new Customer();
-customer.createProject();
+const project = new Customer();
+project.createProject();
+const resultOfProjectImplementation =
+  itCompany.calculateProjectImplementation(project);
 // console.log("itCompany :>> ", itCompany.emloyees);
