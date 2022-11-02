@@ -81,18 +81,19 @@ class ItCompany {
     // console.log(this.employees);
   }
 
-  calculateProjectImplementation(project) {
-    console.log("project :>> ", project);
-    // console.log("this.employees :>> ", this.employees);
-    const assignTask = project.map((task, index) => {
-      let indexOfTask = 0;
-      this.employees.flatMap((employ) => {
-        if (task.side === employ.side) {
-          indexOfTask = index +1;
-          employ.tasks.push(indexOfTask);
-          return;
-         }
-      });
+    calculateProjectImplementation(project) {
+        console.log("project :>> ", project);
+        
+
+        const assignTask = project.map((task, index) => {
+        let indexOfTask = 0;
+        this.employees.flatMap((employ) => {
+            if (task.side === employ.side) {
+            indexOfTask = index +1;
+            employ.tasks.push(indexOfTask);
+            return;
+            }
+        });
     });
     console.log(" this.employees :>> ", this.employees);
 
