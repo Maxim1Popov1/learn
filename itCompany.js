@@ -28,9 +28,6 @@ class Employ {
 
 class Customer {
   constructor() {
-    // this.description;
-    // this.side;
-    // this.estimate;
     this.projectSettings = [];
   }
   createProject() {
@@ -44,7 +41,7 @@ class Customer {
 
       this.projectSettings.push(task);
     }
-    // console.log(this.projectSettings);
+   
     return this.projectSettings;
   }
 }
@@ -60,22 +57,76 @@ class ItCompany {
   }
 
   calculateProjectImplementation(project) {
-    
-    console.log("employees :>> ", this.employees);
-    const assignTask = project.projectSettings.map((task) => {
-      console.log('task :>> ', task);
-      return this.employees.find((employ) => {
-        if (employ.tasks.length === 0) {
-          employ.tasks.push(task);
-          return employ.side === task.side;
-        }
-      });
-      // console.log("findedEmploy :>> ", findedEmploys);
+
+    const assignTask = project.map((task) => {
+      const employeeIndex = this.employees.findIndex(
+        (employ) => employ.side === task.side
+      );
+      if (!~employeeIndex) {
+        console.log(`Для данной задачи нет разработчиков! Side: ${task.side}.`);
+        return;
+        // throw new Error(`Для данной задачи нет разработчиков! Side: ${task.side}.`);
+      }
+
+      this.employees[employeeIndex].tasks.push(task);
     });
-    console.log("assignTask :>> ", assignTask);
+    
+    let estimation = 0;
+    
+    const employCfg = this.employees.map((employ) => {
+      let sum = 0;
+      
+      employ.tasks.forEach((task) => {
+       
+        sum = task.estimate + sum;
+        
+console.log('sum', sum);
+      });
+
+      if (employ.grade === "Junior") {
+        sum = sum * 1.5 * 12;
+      }
+      if (employ.grade === "Middle") {
+        sum = sum * 1.3 * 22;
+      }
+      if (employ.grade === "Signor") {
+        sum = sum * 29; 
+      }
+estimation = sum + estimation;
+ });
+console.log("estimation-", estimation, );
+
+let numberOfDays = 0;
+const employCfgg = this.employees.map((employ) => {
+  let daySum = 0;
+
+ employ.tasks.forEach((task) => {
+
+  daySum = task.estimate + daySum;
+});
+      // console.log('daySum', daySum);
+        if (employ.grade === "Junior") {
+          daySum = (daySum * 1.5) / 8;
+        }
+        if (employ.grade === "Middle") {
+          daySum = (daySum * 1.3) / 8;
+        }
+        if (employ.grade === "Signor") {
+          daySum = daySum  / 8;
+        }
+        
+      
+      numberOfDays = daySum +numberOfDays
+      
+ });
+     
+   console.log("numberOfDays-", numberOfDays, );
+
+    
     
   }
 }
+
 
 const randomGeneration = (max, min) => {
   return Math.floor(Math.random() * (max - min)) + min;
@@ -101,6 +152,6 @@ const itCompany = new ItCompany();
 itCompany.hireEmployees();
 const project = new Customer();
 project.createProject();
-const resultOfProjectImplementation =
-  itCompany.calculateProjectImplementation(project);
-// console.log("itCompany :>> ", itCompany.emloyees);
+const resultOfProjectImplementation = itCompany.calculateProjectImplementation(
+  project.projectSettings
+);
