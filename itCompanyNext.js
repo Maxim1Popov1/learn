@@ -91,7 +91,7 @@ class ItCompany {
           indexOfTask = index +1;
           employ.tasks.push(indexOfTask);
           return;
-        }
+         }
       });
     });
     console.log(" this.employees :>> ", this.employees);
