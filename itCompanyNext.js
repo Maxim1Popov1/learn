@@ -78,20 +78,21 @@ class ItCompany {
       let backCreation = backEmploy.createEmploy();
       this.employees.push(backCreation);
     }
-    // console.log(this.employees);
+   
   }
 
     calculateProjectImplementation(project) {
         console.log("project :>> ", project);
         
-
         const assignTask = project.map((task, index) => {
         let indexOfTask = 0;
-        this.employees.flatMap((employ) => {
+        this.employees.forEach((employ) => {
             if (task.side === employ.side) {
             indexOfTask = index +1;
             employ.tasks.push(indexOfTask);
             return;
+
+
             }
         });
     });
